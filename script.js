@@ -12,7 +12,7 @@
 
                     //#region Row №1.
 
-                    "Backquote": {
+                    "backquote": {
                         title: "Backquote",
                         value: 192,
                         service: false,
@@ -47,7 +47,7 @@
                         //    }
                         //}
                     },
-                    "Digit1": {
+                    "digit1": {
                         title: "Digit1",
                         value: 49,
                         service: false,
@@ -72,7 +72,7 @@
                             };
                         }
                     },
-                    "Digit2": {
+                    "digit2": {
                         title: "Digit2",
                         value: 50,
                         service: false,
@@ -97,7 +97,7 @@
                             };
                         }
                     },
-                    "Digit3": {
+                    "digit3": {
                         title: "Digit3",
                         value: 51,
                         service: false,
@@ -122,7 +122,7 @@
                             };
                         }
                     },
-                    "Digit4": {
+                    "digit4": {
                         title: "Digit4",
                         value: 52,
                         service: false,
@@ -147,7 +147,7 @@
                             };
                         }
                     },
-                    "Digit5": {
+                    "digit5": {
                         title: "Digit5",
                         value: 53,
                         service: false,
@@ -172,7 +172,7 @@
                             };
                         }
                     },
-                    "Digit6": {
+                    "digit6": {
                         title: "Digit6",
                         value: 54,
                         service: false,
@@ -197,7 +197,7 @@
                             };
                         }
                     },
-                    "Digit7": {
+                    "digit7": {
                         title: "Digit7",
                         value: 55,
                         service: false,
@@ -222,7 +222,7 @@
                             };
                         }
                     },
-                    "Digit8": {
+                    "digit8": {
                         title: "Digit8",
                         value: 56,
                         service: false,
@@ -247,7 +247,7 @@
                             };
                         }
                     },
-                    "Digit9": {
+                    "digit9": {
                         title: "Digit9",
                         value: 57,
                         service: false,
@@ -272,7 +272,7 @@
                             };
                         }
                     },
-                    "Digit0": {
+                    "digit0": {
                         title: "Digit0",
                         value: 48,
                         service: false,
@@ -297,7 +297,7 @@
                             };
                         }
                     },
-                    "Minus": {
+                    "minus": {
                         title: "Minus",
                         value: 189,
                         service: false,
@@ -322,7 +322,7 @@
                             };
                         }
                     },
-                    "Equal": {
+                    "equal": {
                         title: "Equal",
                         value: 187,
                         service: false,
@@ -347,7 +347,7 @@
                             };
                         }
                     },                    
-                    "Backspace": {
+                    "backspace": {
                         title: "Backspace",
                         value: 8,
                         service: true,
@@ -365,7 +365,7 @@
 
                     //#region Row №2.
 
-                    "Tab": {
+                    "tab": {
                         title: "Tab",
                         value: 9,
                         service: true,
@@ -377,7 +377,7 @@
                             };
                         }
                     },
-                    "KeyQ": {
+                    "keyQ": {
                         title: "KeyQ",
                         value: 81,
                         service: false,
@@ -402,7 +402,7 @@
                             };
                         }
                     },
-                    "KeyW": {
+                    "keyW": {
                         title: "KeyW",
                         value: 87,
                         service: false,
@@ -427,7 +427,7 @@
                             };
                         }
                     },
-                    "KeyE": {
+                    "keyE": {
                         title: "KeyE",
                         value: 69,
                         service: false,
@@ -452,7 +452,7 @@
                             };
                         }
                     },
-                    "KeyR": {
+                    "keyR": {
                         title: "KeyR",
                         value: 82,
                         service: false,
@@ -477,7 +477,7 @@
                             };
                         }
                     },
-                    "KeyT": {
+                    "keyT": {
                         title: "KeyT",
                         value: 84,
                         service: false,
@@ -502,7 +502,7 @@
                             };
                         }
                     },
-                    "KeyY": {
+                    "keyY": {
                         title: "KeyY",
                         value: 89,
                         service: false,
@@ -527,7 +527,7 @@
                             };
                         }
                     },
-                    "KeyU": {
+                    "keyU": {
                         title: "KeyU",
                         value: 85,
                         service: false,
@@ -552,7 +552,7 @@
                             };
                         }
                     },
-                    "KeyI": {
+                    "keyI": {
                         title: "KeyI",
                         value: 73,
                         service: false,
@@ -577,7 +577,7 @@
                             };
                         }
                     },
-                    "KeyO": {
+                    "keyO": {
                         title: "KeyO",
                         value: 79,
                         service: false,
@@ -602,7 +602,7 @@
                             };
                         }
                     },
-                    "KeyP": {
+                    "keyP": {
                         title: "KeyP",
                         value: 80,
                         service: false,
@@ -627,7 +627,7 @@
                             };
                         }
                     },
-                    "BracketLeft": {
+                    "bracketLeft": {
                         title: "BracketLeft",
                         value: 219,
                         service: false,
@@ -652,7 +652,7 @@
                             };
                         }
                     },
-                    "BracketRight": {
+                    "bracketRight": {
                         title: "BracketRight",
                         value: 221,
                         service: false,
@@ -677,7 +677,7 @@
                             };
                         }
                     },
-                    "BackSlash": {
+                    "backSlash": {
                         title: "BackSlash",
                         value: 220,
                         service: false,
@@ -707,11 +707,11 @@
 
                     //#region Row №3.
 
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "capsLock": {
+                        title: "CapsLock",
+                        value: 20,
                         service: true,
-                        current: "Tab",
+                        current: "CapsLock",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -719,24 +719,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyA": {
+                        title: "KeyA",
+                        value: 65,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "a",
+                            signCaps: "A",
+                            signShift: "A",
+                            signShiftCaps: "a",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "ф",
+                            signCaps: "Ф",
+                            signShift: "Ф",
+                            signShiftCaps: "ф",
                         },
-                        current: "q",
+                        current: "a",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -744,24 +744,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyS": {
+                        title: "KeyS",
+                        value: 83,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "s",
+                            signCaps: "S",
+                            signShift: "S",
+                            signShiftCaps: "s",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "ы",
+                            signCaps: "Ы",
+                            signShift: "Ы",
+                            signShiftCaps: "ы",
                         },
-                        current: "q",
+                        current: "s",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -769,24 +769,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyD": {
+                        title: "KeyD",
+                        value: 68,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "d",
+                            signCaps: "D",
+                            signShift: "D",
+                            signShiftCaps: "d",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "в",
+                            signCaps: "В",
+                            signShift: "В",
+                            signShiftCaps: "в",
                         },
-                        current: "q",
+                        current: "d",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -794,24 +794,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyF": {
+                        title: "KeyF",
+                        value: 70,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "f",
+                            signCaps: "F",
+                            signShift: "F",
+                            signShiftCaps: "f",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "а",
+                            signCaps: "А",
+                            signShift: "А",
+                            signShiftCaps: "а",
                         },
-                        current: "q",
+                        current: "f",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -819,24 +819,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyG": {
+                        title: "KeyG",
+                        value: 71,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "g",
+                            signCaps: "G",
+                            signShift: "G",
+                            signShiftCaps: "g",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "п",
+                            signCaps: "П",
+                            signShift: "П",
+                            signShiftCaps: "п",
                         },
-                        current: "q",
+                        current: "g",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -844,24 +844,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyH": {
+                        title: "KeyH",
+                        value: 72,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "h",
+                            signCaps: "H",
+                            signShift: "H",
+                            signShiftCaps: "h",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "р",
+                            signCaps: "Р",
+                            signShift: "Р",
+                            signShiftCaps: "р",
                         },
-                        current: "q",
+                        current: "h",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -869,24 +869,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyJ": {
+                        title: "KeyJ",
+                        value: 74,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "j",
+                            signCaps: "J",
+                            signShift: "J",
+                            signShiftCaps: "j",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "о",
+                            signCaps: "О",
+                            signShift: "О",
+                            signShiftCaps: "о",
                         },
-                        current: "q",
+                        current: "j",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -894,24 +894,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyK": {
+                        title: "KeyK",
+                        value: 75,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "k",
+                            signCaps: "K",
+                            signShift: "K",
+                            signShiftCaps: "k",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "л",
+                            signCaps: "Л",
+                            signShift: "Л",
+                            signShiftCaps: "л",
                         },
-                        current: "q",
+                        current: "k",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -919,24 +919,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyL": {
+                        title: "KeyL",
+                        value: 76,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "l",
+                            signCaps: "L",
+                            signShift: "L",
+                            signShiftCaps: "l",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "д",
+                            signCaps: "Д",
+                            signShift: "Д",
+                            signShiftCaps: "д",
                         },
-                        current: "q",
+                        current: "l",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -944,24 +944,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "semicolon": {
+                        title: "Semicolon",
+                        value: 186,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: ";",
+                            signCaps: ";",
+                            signShift: ":",
+                            signShiftCaps: ":",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "ж",
+                            signCaps: "Ж",
+                            signShift: "Ж",
+                            signShiftCaps: "ж",
                         },
-                        current: "q",
+                        current: ";",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -969,24 +969,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "quote": {
+                        title: "Quote",
+                        value: 222,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "'",
+                            signCaps: "'",
+                            signShift: "&quot;",
+                            signShiftCaps: "&quot;",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "э",
+                            signCaps: "Э",
+                            signShift: "Э",
+                            signShiftCaps: "э",
                         },
-                        current: "q",
+                        current: "'",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -994,11 +994,11 @@
                             };
                         }
                     },
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "enter": {
+                        title: "Enter",
+                        value: 13,
                         service: true,
-                        current: "Tab",
+                        current: "Enter",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1006,16 +1006,17 @@
                             };
                         }
                     },
+
                     //#endregion
 
 
                     //#region Row №4.
 
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "shift": {
+                        title: "Shift",
+                        value: 16,
                         service: true,
-                        current: "Tab",
+                        current: "Shift",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1023,24 +1024,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyZ": {
+                        title: "KeyZ",
+                        value: 90,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "z",
+                            signCaps: "Z",
+                            signShift: "Z",
+                            signShiftCaps: "z",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "я",
+                            signCaps: "Я",
+                            signShift: "Я",
+                            signShiftCaps: "я",
                         },
-                        current: "q",
+                        current: "z",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1048,24 +1049,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyX": {
+                        title: "KeyX",
+                        value: 88,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "x",
+                            signCaps: "X",
+                            signShift: "X",
+                            signShiftCaps: "x",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "ч",
+                            signCaps: "Ч",
+                            signShift: "Ч",
+                            signShiftCaps: "ч",
                         },
-                        current: "q",
+                        current: "x",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1073,24 +1074,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyC": {
+                        title: "KeyC",
+                        value: 67,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "c",
+                            signCaps: "C",
+                            signShift: "C",
+                            signShiftCaps: "c",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "с",
+                            signCaps: "С",
+                            signShift: "С",
+                            signShiftCaps: "с",
                         },
-                        current: "q",
+                        current: "c",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1098,24 +1099,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyV": {
+                        title: "KeyV",
+                        value: 86,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "v",
+                            signCaps: "V",
+                            signShift: "V",
+                            signShiftCaps: "v",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "м",
+                            signCaps: "М",
+                            signShift: "М",
+                            signShiftCaps: "м",
                         },
-                        current: "q",
+                        current: "v",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1123,24 +1124,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyB": {
+                        title: "KeyB",
+                        value: 66,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "b",
+                            signCaps: "B",
+                            signShift: "B",
+                            signShiftCaps: "b",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "и",
+                            signCaps: "И",
+                            signShift: "И",
+                            signShiftCaps: "и",
                         },
-                        current: "q",
+                        current: "b",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1148,24 +1149,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyN": {
+                        title: "KeyN",
+                        value: 78,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "n",
+                            signCaps: "N",
+                            signShift: "N",
+                            signShiftCaps: "n",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "т",
+                            signCaps: "Т",
+                            signShift: "Т",
+                            signShiftCaps: "т",
                         },
-                        current: "q",
+                        current: "n",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1173,24 +1174,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "keyM": {
+                        title: "KeyM",
+                        value: 77,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "m",
+                            signCaps: "M",
+                            signShift: "M",
+                            signShiftCaps: "m",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "ь",
+                            signCaps: "Ь",
+                            signShift: "Ь",
+                            signShiftCaps: "ь",
                         },
-                        current: "q",
+                        current: "m",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1198,24 +1199,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "comma": {
+                        title: "Comma",
+                        value: 188,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: ",",
+                            signCaps: ",",
+                            signShift: "<",
+                            signShiftCaps: "<",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "б",
+                            signCaps: "Б",
+                            signShift: "Б",
+                            signShiftCaps: "б",
                         },
-                        current: "q",
+                        current: ",",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1223,24 +1224,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "period": {
+                        title: "Period",
+                        value: 190,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: ".",
+                            signCaps: ".",
+                            signShift: ">",
+                            signShiftCaps: ">",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: "ю",
+                            signCaps: "Ю",
+                            signShift: "Ю",
+                            signShiftCaps: "ю",
                         },
-                        current: "q",
+                        current: ".",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1248,24 +1249,24 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
+                    "slash": {
+                        title: "Slash",
+                        value: 191,
                         service: false,
 
                         en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
+                            signDef: "/",
+                            signCaps: "/",
+                            signShift: "?",
+                            signShiftCaps: "?",
                         },
                         ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
+                            signDef: ".",
+                            signCaps: ".",
+                            signShift: ",",
+                            signShiftCaps: ",",
                         },
-                        current: "q",
+                        current: "/",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1273,36 +1274,23 @@
                             };
                         }
                     },
-                    "KeyQ": {
-                        title: "KeyQ",
-                        value: 81,
-                        service: false,
-
-                        en: {
-                            signDef: "q",
-                            signCaps: "Q",
-                            signShift: "Q",
-                            signShiftCaps: "q",
-                        },
-                        ru: {
-                            signDef: "й",
-                            signCaps: "Й",
-                            signShift: "Й",
-                            signShiftCaps: "й",
-                        },
-                        current: "q",
-
-                        onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
-                        }
-                    },
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "arrowUp": {
+                        title: "ArrowUp",
+                        value: 38,
                         service: true,
-                        current: "Tab",
+                        current: "&uarr;",
+
+                        onClickHandler: function (e) {
+                            return () => {
+                                document.getElementById("input").innerHTML += this.current;
+                            };
+                        }
+                    },
+                    "shiftRight": {
+                        title: "Shift",
+                        value: 16,
+                        service: true,
+                        current: "Shift",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1316,11 +1304,11 @@
 
                     //#region Row №5.
 
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "controlLeft": {
+                        title: "ControlLeft",
+                        value: 17,
                         service: true,
-                        current: "Tab",
+                        current: "Ctrl",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1328,11 +1316,11 @@
                             };
                         }
                     },
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "altLeft": {
+                        title: "AltLeft",
+                        value: 18,
                         service: true,
-                        current: "Tab",
+                        current: "Alt",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1340,11 +1328,11 @@
                             };
                         }
                     },
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "space": {
+                        title: "Space",
+                        value: 32,
                         service: true,
-                        current: "Tab",
+                        current: "Space",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1352,11 +1340,11 @@
                             };
                         }
                     },
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "altRight": {
+                        title: "AltRight",
+                        value: 18,
                         service: true,
-                        current: "Tab",
+                        current: "Alt",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1364,11 +1352,11 @@
                             };
                         }
                     },
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "controlRight": {
+                        title: "ControlRight",
+                        value: 17,
                         service: true,
-                        current: "Tab",
+                        current: "Ctrl",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1376,11 +1364,11 @@
                             };
                         }
                     },
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "arrowLeft": {
+                        title: "ArrowLeft",
+                        value: 37,
                         service: true,
-                        current: "Tab",
+                        current: "&larr;",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1388,11 +1376,11 @@
                             };
                         }
                     },
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "arrowDown": {
+                        title: "ArrowDown",
+                        value: 40,
                         service: true,
-                        current: "Tab",
+                        current: "&darr;",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1400,11 +1388,11 @@
                             };
                         }
                     },
-                    "Tab": {
-                        title: "Tab",
-                        value: 9,
+                    "arrowRight": {
+                        title: "ArrowRight",
+                        value: 39,
                         service: true,
-                        current: "Tab",
+                        current: "&rarr;",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1412,11 +1400,11 @@
                             };
                         }
                     },
-                    "Tab": {
-                        title: "Tab",
+                    "delete": {
+                        title: "Delete",
                         value: 9,
                         service: true,
-                        current: "Tab",
+                        current: "Del",
 
                         onClickHandler: function (e) {
                             return () => {
@@ -1440,9 +1428,10 @@
                 wrapper.className = "wrapper";
 
                 let input = document.createElement("textarea");
-                input.readonly = "true";
-                input.setAttribute("id", "input");
+                
+                input.setAttribute("id", "input");                
                 input.className = "input";
+                input.setAttribute("readonly", "");
                 
                 let board = document.createElement("div");
                 board.className = "keyboard";
@@ -1452,7 +1441,7 @@
                     btn.setAttribute("type", "button");
                     if (i < this.idBtn.length) {
                         btn.id = this.idBtn[i];
-                        btn.textContent = this.buttons[this.idBtn[i]].current;
+                        btn.innerHTML = this.buttons[this.idBtn[i]].current;
                     }
                     board.appendChild(btn);
                 }
