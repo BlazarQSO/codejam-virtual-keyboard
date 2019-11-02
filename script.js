@@ -1,1 +1,5 @@
-﻿
+﻿(function () {
+    window.onload = function () {
+
+    }
+})();
