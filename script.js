@@ -36,16 +36,6 @@
                                 document.getElementById("input").innerHTML += this.current;
                             };
                         }
-
-
-                        //changeSymbol: function (e) {
-                        //    if (!caps && !shift) {
-                        //    } else {
-                        //    alert("ok2");
-                        //    elem.innerText = this.signDef;
-                        //    this.current = this.signDef;
-                        //    }
-                        //}
                     },
                     "digit1": {
                         title: "Digit1",
@@ -67,10 +57,10 @@
                         current: "1",
 
                         onClickHandler: function (e) {
-                            return () => {
+                            return () => {                                
                                 document.getElementById("input").innerHTML += this.current;
                             };
-                        }
+                        },
                     },
                     "digit2": {
                         title: "Digit2",
@@ -1012,8 +1002,8 @@
 
                     //#region Row №4.
 
-                    "shift": {
-                        title: "Shift",
+                    "shiftLeft": {
+                        title: "ShiftLeft",
                         value: 16,
                         service: true,
                         current: "Shift",
@@ -1287,7 +1277,7 @@
                         }
                     },
                     "shiftRight": {
-                        title: "Shift",
+                        title: "ShiftRight",
                         value: 16,
                         service: true,
                         current: "Shift",
@@ -1420,6 +1410,11 @@
                 for (var key in this.buttons) {
                     this.idBtn.push(key);
                 }
+                                
+                document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => this.keyDown(e, this.buttons), false);
+                document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => this.keyAp(e, this.buttons), false);
+                window.addEventListener("blur", (e) => this.keyDefault(e, this.idBtn), false);
+                
             }
 
             Create() {
@@ -1439,6 +1434,7 @@
                 for (let i = 0; i < 63; i++) {
                     let btn = document.createElement("button");
                     btn.setAttribute("type", "button");
+                    btn.className = "button";
                     if (i < this.idBtn.length) {
                         btn.id = this.idBtn[i];
                         btn.innerHTML = this.buttons[this.idBtn[i]].current;
@@ -1452,11 +1448,31 @@
                 document.body.appendChild(wrapper);
 
                 for (var key in this.buttons) {
-                    document.querySelector("#" + key).onclick = this.buttons[key].onClickHandler();
+                    document.querySelector("#" + key).onclick = this.buttons[key].onClickHandler();                  
                 }
             }
 
+            keyDown(e, buttons) {
+                let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);                
+                let sign = buttons[id].current;
+                document.getElementById("input").innerHTML += sign;
+                document.getElementById(id).classList.add("press");
+            }
+
+            keyAp(e, buttons) {
+                let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
+                let sign = buttons[id].current;                
+                document.getElementById(id).classList.remove("press");
+            }
+
+            keyDefault(e, idBtn) {
+                for (let i = 0; i < idBtn.length; i++) {
+                    document.getElementById(idBtn[i]).classList.remove("press");
+                }
+            }
         }
+
+
 
         let instance = new Keyboard();
         instance.Create();
