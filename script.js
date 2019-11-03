@@ -1,18 +1,18 @@
 ﻿(function () {
     window.onload = function () {
-               
+
 
         class Keyboard {
 
-            constructor() {                
+            constructor() {
                 this.shift = false;
                 this.caps = false;
                 this.alt = false;
                 this.ctrl = false;
                 this.lang = localStorage.getItem("lang") || "en";
                 this.idBtn = [];
-                this.buttons;
-
+                this.buttons;              
+                
                 this.buttons = {
 
                     //#region Row №1.
@@ -37,9 +37,7 @@
                         current: "`",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         },
                     },
                     "digit1": {
@@ -62,9 +60,7 @@
                         current: "1",
 
                         onClickHandler: function (e) {
-                            return () => {                                
-                                document.getElementById("input").innerHTML += this.current;                              
-                            };
+                            return () => focusSelect(this.current);
                         },
                     },
                     "digit2": {
@@ -87,9 +83,7 @@
                         current: "2",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "digit3": {
@@ -112,9 +106,7 @@
                         current: "3",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "digit4": {
@@ -137,9 +129,7 @@
                         current: "4",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "digit5": {
@@ -162,9 +152,7 @@
                         current: "5",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "digit6": {
@@ -187,9 +175,7 @@
                         current: "6",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "digit7": {
@@ -212,9 +198,7 @@
                         current: "7",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "digit8": {
@@ -237,9 +221,7 @@
                         current: "8",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "digit9": {
@@ -262,9 +244,7 @@
                         current: "9",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "digit0": {
@@ -287,9 +267,7 @@
                         current: "0",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "minus": {
@@ -312,9 +290,7 @@
                         current: "-",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "equal": {
@@ -337,24 +313,28 @@
                         current: "=",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
-                    },                    
+                    },
                     "backspace": {
                         title: "Backspace",
                         value: 8,
-                        service: true,                        
+                        service: true,
                         current: "BackSpace",
 
                         onClickHandler: function (e) {
                             return () => {
-                                let text = document.getElementById("input").textContent;
+                                let input = document.getElementById("input");
+                                let text = input.textContent;
                                 text = text.substring(0, text.length - 1);
-                                document.getElementById("input").innerHTML = text;
+                                input.innerHTML = text;
+                                
+                                let select = text.length;
+                                input.selectionStart = select;
+                                input.selectionEnd = select;
+                                input.focus();
                             };
-                        },                       
+                        },
                     },
 
                     //#endregion
@@ -368,11 +348,9 @@
                         service: true,
                         current: "Tab",
 
-                        onClickHandler: function (e) {                            
-                            return () => {
-                                document.getElementById("input").innerHTML += "\t";                                
-                            };
-                        },           
+                        onClickHandler: function (e) {
+                            return () => focusSelect("\t");                            
+                        },
                     },
                     "keyQ": {
                         title: "KeyQ",
@@ -394,9 +372,7 @@
                         current: "q",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyW": {
@@ -419,9 +395,7 @@
                         current: "w",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyE": {
@@ -444,9 +418,7 @@
                         current: "e",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyR": {
@@ -469,9 +441,7 @@
                         current: "r",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyT": {
@@ -494,9 +464,7 @@
                         current: "t",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyY": {
@@ -519,9 +487,7 @@
                         current: "y",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyU": {
@@ -544,9 +510,7 @@
                         current: "u",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyI": {
@@ -569,9 +533,7 @@
                         current: "i",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyO": {
@@ -594,9 +556,7 @@
                         current: "o",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyP": {
@@ -619,9 +579,7 @@
                         current: "p",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "bracketLeft": {
@@ -644,9 +602,7 @@
                         current: "[",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "bracketRight": {
@@ -669,9 +625,7 @@
                         current: "]",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "backSlash": {
@@ -694,9 +648,7 @@
                         current: "\\",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
 
@@ -709,21 +661,21 @@
                         title: "capsLock",
                         value: 20,
                         service: true,
-                        current: "CapsLock",                                                
-                        func: this.changeSigns, 
+                        current: "CapsLock",
+                        func: this.changeSigns,
                         obj: this,
 
                         onClickHandler: function (e) {
                             let self = this;
                             return function () {
-                                if (self.obj.caps) {                               
+                                if (self.obj.caps) {
                                     document.getElementById(self.title).classList.remove("press");
-                                } else {                               
-                                    document.getElementById(self.title).classList.add("press");                                    
+                                } else {
+                                    document.getElementById(self.title).classList.add("press");
                                 }
 
                                 self.obj.caps = (self.obj.caps) ? false : true;
-                                self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);                                                         
+                                self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
                             };
                         }
                     },
@@ -747,9 +699,7 @@
                         current: "a",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyS": {
@@ -772,9 +722,7 @@
                         current: "s",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyD": {
@@ -797,9 +745,7 @@
                         current: "d",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyF": {
@@ -822,9 +768,7 @@
                         current: "f",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyG": {
@@ -847,9 +791,7 @@
                         current: "g",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyH": {
@@ -872,9 +814,7 @@
                         current: "h",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyJ": {
@@ -897,9 +837,7 @@
                         current: "j",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyK": {
@@ -922,9 +860,7 @@
                         current: "k",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyL": {
@@ -947,9 +883,7 @@
                         current: "l",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "semicolon": {
@@ -972,9 +906,7 @@
                         current: ";",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "quote": {
@@ -997,9 +929,7 @@
                         current: "'",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "enter": {
@@ -1009,9 +939,7 @@
                         current: "Enter",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += "\n";
-                            };
+                            return () => focusSelect("\n");                            
                         }
                     },
 
@@ -1057,9 +985,7 @@
                         current: "z",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyX": {
@@ -1082,9 +1008,7 @@
                         current: "x",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyC": {
@@ -1107,9 +1031,7 @@
                         current: "c",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyV": {
@@ -1132,9 +1054,7 @@
                         current: "v",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyB": {
@@ -1157,9 +1077,7 @@
                         current: "b",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyN": {
@@ -1182,9 +1100,7 @@
                         current: "n",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "keyM": {
@@ -1207,9 +1123,7 @@
                         current: "m",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "comma": {
@@ -1232,9 +1146,7 @@
                         current: ",",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "period": {
@@ -1257,15 +1169,13 @@
                         current: ".",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "slash": {
                         title: "Slash",
                         value: 191,
-                        service: false,
+                        service: false,                        
 
                         en: {
                             signDef: "/",
@@ -1282,9 +1192,7 @@
                         current: "/",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
-                            };
+                            return () => focusSelect(this.current);
                         }
                     },
                     "arrowUp": {
@@ -1295,7 +1203,14 @@
 
                         onClickHandler: function (e) {
                             return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                                let input = document.getElementById("input");
+                                let select = input.selectionStart;
+                                if (select >= 60) {
+                                    select = select - 60;
+                                }
+                                input.selectionStart = select;
+                                input.selectionEnd = select;
+                                input.focus();
                             };
                         }
                     },
@@ -1325,14 +1240,14 @@
                     "controlLeft": {
                         title: "ControlLeft",
                         value: 17,
-                        service: true,                        
+                        service: true,
                         func: this.changeSigns,
                         obj: this,
                         current: "Ctrl",
 
                         onClickHandler: function (e) {
-                            let self = this;                            
-                            return function () {                                
+                            let self = this;
+                            return function () {
                                 self.obj.ctrl = true;
                                 if (self.obj.alt) {
                                     self.obj.lang = (self.obj.lang === "en") ? "ru" : "en";
@@ -1344,7 +1259,7 @@
                         onMouseUp: function (e) {
                             let self = this;
                             return function () {
-                                self.obj.ctrl = false;                                
+                                self.obj.ctrl = false;
                             };
                         }
                     },
@@ -1369,8 +1284,8 @@
                         },
                         onMouseUp: function (e) {
                             let self = this;
-                            return function () {                                
-                                self.obj.alt = false;                                
+                            return function () {
+                                self.obj.alt = false;
                             };
                         }
                     },
@@ -1381,15 +1296,13 @@
                         current: "Space",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += " ";
-                            };
+                            return () => focusSelect(" ");                            
                         }
                     },
                     "altRight": {
                         title: "AltRight",
                         value: 18,
-                        service: true,                        
+                        service: true,
                         func: this.changeSigns,
                         obj: this,
                         current: "Alt",
@@ -1446,7 +1359,12 @@
 
                         onClickHandler: function (e) {
                             return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                                let input = document.getElementById("input");
+                                let select = input.selectionStart;
+                                select--;
+                                input.selectionStart = select;
+                                input.selectionEnd = select;
+                                input.focus();
                             };
                         }
                     },
@@ -1458,7 +1376,14 @@
 
                         onClickHandler: function (e) {
                             return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                                let input = document.getElementById("input");
+                                let select = input.selectionStart;
+                                if (select + 60 < input.textContent.length) {
+                                    select = select + 60;
+                                }
+                                input.selectionStart = select;
+                                input.selectionEnd = select;
+                                input.focus();
                             };
                         }
                     },
@@ -1469,8 +1394,13 @@
                         current: "&rarr;",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                            return () => {                                
+                                let input = document.getElementById("input");
+                                let select = input.selectionStart;
+                                select++;
+                                input.selectionStart = select;
+                                input.selectionEnd = select;
+                                input.focus();
                             };
                         }
                     },
@@ -1482,24 +1412,39 @@
 
                         onClickHandler: function (e) {
                             return () => {
+                                let input = document.getElementById("input");
+                                let select = input.selectionStart;                                
                                 let text = document.getElementById("input").textContent;
-                                text = text.substring(0, text.length - 1);
-                                document.getElementById("input").innerHTML = text;
+                                text = text.substring(0, select) + text.substring(select + 1, text.length);                                
+                                input.innerHTML = text;
+                                input.selectionStart = select;
+                                input.selectionEnd = select;
+                                input.focus();
                             };
                         }
                     },
 
                     //#endregion
                 }
-                                
+                
+                function focusSelect(current) {
+                    let input = document.getElementById("input");
+                    input.innerHTML += current;
+                    let text = input.textContent;
+                    let select = text.length;
+                    input.selectionStart = select;
+                    input.selectionEnd = select;
+                    input.focus();
+                }
+
                 for (var key in this.buttons) {
                     this.idBtn.push(key);
                 }
-                                
+
                 document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => this.keyDown(e, this.buttons), false);
                 document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => this.keyUp(e, this.buttons), false);
                 window.addEventListener("blur", (e) => this.keyDefault(e, this.idBtn), false);
-                
+
             }
 
 
@@ -1508,31 +1453,31 @@
                 wrapper.className = "wrapper";
 
                 let input = document.createElement("textarea");
-                
-                input.setAttribute("id", "input");                
-                input.className = "input";              
-                
-                input.addEventListener('keydown', function (e) {                    
-                        e.preventDefault();                                          
+
+                input.setAttribute("id", "input");
+                input.className = "input";
+
+                input.addEventListener('keydown', function (e) {
+                    e.preventDefault();
                 }, false);
 
                 let board = document.createElement("div");
                 board.className = "keyboard";
-               
+
                 for (let i = 0; i < 63; i++) {
                     let btn = document.createElement("button");
                     btn.setAttribute("type", "button");
                     btn.className = "button";
                     if (i < this.idBtn.length) {
                         btn.id = this.idBtn[i];
-                        if (this.lang === "ru" && !this.buttons[this.idBtn[i]].service) {                            
+                        if (this.lang === "ru" && !this.buttons[this.idBtn[i]].service) {
                             this.buttons[this.idBtn[i]].current = this.buttons[this.idBtn[i]].ru.signDef;
                         }
                         btn.innerHTML = this.buttons[this.idBtn[i]].current;
                     }
                     board.appendChild(btn);
                 }
-               
+
                 wrapper.appendChild(input);
                 wrapper.appendChild(board);
                 document.body.appendChild(wrapper);
@@ -1550,13 +1495,6 @@
                             document.querySelector("#" + key).addEventListener("mouseup", this.buttons[key].onClickHandler(), false);
                         }
                     }
-
-                    document.querySelector("#" + key).addEventListener("click", function () {                                          
-                        let input = document.getElementById("input");
-                        let text = input.textContent;
-                        input.selectionStart = text.length;
-                        input.focus();
-                    }, false);
                 }
             }
 
@@ -1576,7 +1514,7 @@
                     }
                 }
 
-                document.getElementById("input").blur();                                
+                document.getElementById("input").blur();
             }
 
 
@@ -1586,10 +1524,10 @@
 
                 if (id === "controlLeft" || id === "controlRight" || id === "altLeft" || id === "altRight") {
                     buttons[id].onMouseUp()();
-                } 
+                }
                 if (id !== "capsLock") {
                     document.getElementById(id).classList.remove("press");
-                } 
+                }
                 if (id === "shiftLeft" || id === "shiftRight") {
                     buttons[id].onClickHandler()();
                 }
@@ -1608,7 +1546,7 @@
             }
 
 
-            changeSigns(idBtn, buttons, caps, shift, lang) {                
+            changeSigns(idBtn, buttons, caps, shift, lang) {
                 for (let key = 0; key < idBtn.length; key++) {
                     if (!buttons[idBtn[key]].service) {
 
@@ -1642,10 +1580,10 @@
                             }
                         }
                     }
-                }                
+                }
             }
         }
-        
+
 
         let instance = new Keyboard();
         instance.Create();
