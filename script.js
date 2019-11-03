@@ -7,8 +7,9 @@
             constructor() {                
                 this.shift = false;
                 this.caps = false;
-                this.lang = "en";
-                this.input = document.getElementById("input");
+                this.alt = false;
+                this.ctrl = false;
+                this.lang = localStorage.getItem("lang") || "en";
                 this.idBtn = [];
                 this.buttons;
 
@@ -1324,12 +1325,26 @@
                     "controlLeft": {
                         title: "ControlLeft",
                         value: 17,
-                        service: true,
+                        service: true,                        
+                        func: this.changeSigns,
+                        obj: this,
                         current: "Ctrl",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                            let self = this;                            
+                            return function () {                                
+                                self.obj.ctrl = true;
+                                if (self.obj.alt) {
+                                    self.obj.lang = (self.obj.lang === "en") ? "ru" : "en";
+                                    localStorage.setItem("lang", self.obj.lang);
+                                    self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
+                                }
+                            };
+                        },
+                        onMouseUp: function (e) {
+                            let self = this;
+                            return function () {
+                                self.obj.ctrl = false;                                
                             };
                         }
                     },
@@ -1338,10 +1353,24 @@
                         value: 18,
                         service: true,
                         current: "Alt",
+                        func: this.changeSigns,
+                        obj: this,
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                            let self = this;
+                            return function () {
+                                self.obj.alt = true;
+                                if (self.obj.ctrl) {
+                                    self.obj.lang = (self.obj.lang === "en") ? "ru" : "en";
+                                    localStorage.setItem("lang", self.obj.lang);
+                                    self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
+                                }
+                            };
+                        },
+                        onMouseUp: function (e) {
+                            let self = this;
+                            return function () {                                
+                                self.obj.alt = false;                                
                             };
                         }
                     },
@@ -1360,12 +1389,26 @@
                     "altRight": {
                         title: "AltRight",
                         value: 18,
-                        service: true,
+                        service: true,                        
+                        func: this.changeSigns,
+                        obj: this,
                         current: "Alt",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                            let self = this;
+                            return function () {
+                                self.obj.alt = true;
+                                if (self.obj.ctrl) {
+                                    self.obj.lang = (self.obj.lang === "en") ? "ru" : "en";
+                                    localStorage.setItem("lang", self.obj.lang);
+                                    self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
+                                }
+                            };
+                        },
+                        onMouseUp: function (e) {
+                            let self = this;
+                            return function () {
+                                self.obj.alt = false;
                             };
                         }
                     },
@@ -1373,11 +1416,25 @@
                         title: "ControlRight",
                         value: 17,
                         service: true,
+                        func: this.changeSigns,
+                        obj: this,
                         current: "Ctrl",
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                            let self = this;
+                            return function () {
+                                self.obj.ctrl = true;
+                                if (self.obj.alt) {
+                                    self.obj.lang = (self.obj.lang === "en") ? "ru" : "en";
+                                    localStorage.setItem("lang", self.obj.lang);
+                                    self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
+                                }
+                            };
+                        },
+                        onMouseUp: function (e) {
+                            let self = this;
+                            return function () {
+                                self.obj.ctrl = false;
                             };
                         }
                     },
@@ -1425,7 +1482,9 @@
 
                         onClickHandler: function (e) {
                             return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                                let text = document.getElementById("input").textContent;
+                                text = text.substring(0, text.length - 1);
+                                document.getElementById("input").innerHTML = text;
                             };
                         }
                     },
@@ -1466,6 +1525,9 @@
                     btn.className = "button";
                     if (i < this.idBtn.length) {
                         btn.id = this.idBtn[i];
+                        if (this.lang === "ru" && !this.buttons[this.idBtn[i]].service) {                            
+                            this.buttons[this.idBtn[i]].current = this.buttons[this.idBtn[i]].ru.signDef;
+                        }
                         btn.innerHTML = this.buttons[this.idBtn[i]].current;
                     }
                     board.appendChild(btn);
@@ -1473,15 +1535,18 @@
                
                 wrapper.appendChild(input);
                 wrapper.appendChild(board);
-
                 document.body.appendChild(wrapper);
 
+
                 for (var key in this.buttons) {
-                    if (key !== "shiftLeft" && key !== "shiftRight" && key !== "capsLock") {
+                    if (key !== "shiftLeft" && key !== "shiftRight" && key !== "capsLock" &&
+                        key !== "controlLeft" && key !== "controlRight" && key !== "altLeft" && key !== "altRight") {
                         document.querySelector("#" + key).addEventListener("click", this.buttons[key].onClickHandler(), false);
                     } else {
                         document.querySelector("#" + key).addEventListener("mousedown", this.buttons[key].onClickHandler(), false);
-                        if (key !== "capsLock") {
+                        if (key === "controlLeft" || key === "controlRight" || key === "altLeft" || key === "altRight") {
+                            document.querySelector("#" + key).addEventListener("mouseup", this.buttons[key].onMouseUp(), false);
+                        } else if (key !== "capsLock") {
                             document.querySelector("#" + key).addEventListener("mouseup", this.buttons[key].onClickHandler(), false);
                         }
                     }
@@ -1498,13 +1563,19 @@
 
             keyDown(e, buttons) {
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
-                if (!(id === "shiftLeft" && this.shift || id === "shiftRight" && this.shift)) {
 
-                    buttons[id].onClickHandler()();
-                    if (id !== "capsLock") {
-                        document.getElementById(id).classList.add("press");
+                if (!(id === "controlLeft" && this.ctrl || id === "controlRight" && this.ctrl
+                    || id === "altLeft" && this.alt || id === "altRight" && this.alt)) {
+
+
+                    if (!(id === "shiftLeft" && this.shift || id === "shiftRight" && this.shift)) {
+                        buttons[id].onClickHandler()();
+                        if (id !== "capsLock") {
+                            document.getElementById(id).classList.add("press");
+                        }
                     }
                 }
+
                 document.getElementById("input").blur();                                
             }
 
@@ -1512,6 +1583,10 @@
             keyUp(e, buttons) {
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
                 let sign = buttons[id].current;
+
+                if (id === "controlLeft" || id === "controlRight" || id === "altLeft" || id === "altRight") {
+                    buttons[id].onMouseUp()();
+                } 
                 if (id !== "capsLock") {
                     document.getElementById(id).classList.remove("press");
                 } 
