@@ -4,10 +4,13 @@
 
         class Keyboard {
 
-            constructor() {
+            constructor() {                
+                this.shift = false;
                 this.caps = false;
-                this.shift = false;               
+                this.lang = "en";
                 this.input = document.getElementById("input");
+                this.idBtn = [];
+                this.buttons;
 
                 this.buttons = {
 
@@ -702,14 +705,24 @@
                     //#region Row №3.
 
                     "capsLock": {
-                        title: "CapsLock",
+                        title: "capsLock",
                         value: 20,
                         service: true,
-                        current: "CapsLock",
+                        current: "CapsLock",                                                
+                        func: this.changeSigns, 
+                        obj: this,
 
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                            let self = this;
+                            return function () {
+                                if (self.obj.caps) {                               
+                                    document.getElementById(self.title).classList.remove("press");
+                                } else {                               
+                                    document.getElementById(self.title).classList.add("press");                                    
+                                }
+                                
+                                self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
+                                self.obj.caps = (self.obj.caps) ? false : true;                              
                             };
                         }
                     },
@@ -996,7 +1009,7 @@
 
                         onClickHandler: function (e) {
                             return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                                document.getElementById("input").innerHTML += "\n";
                             };
                         }
                     },
@@ -1330,7 +1343,7 @@
 
                         onClickHandler: function (e) {
                             return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                                document.getElementById("input").innerHTML += " ";
                             };
                         }
                     },
@@ -1409,8 +1422,7 @@
 
                     //#endregion
                 }
-                
-                this.idBtn = []
+                                
                 for (var key in this.buttons) {
                     this.idBtn.push(key);
                 }
@@ -1429,12 +1441,10 @@
                 let input = document.createElement("textarea");
                 
                 input.setAttribute("id", "input");                
-                input.className = "input";
-                //input.setAttribute("readonly", "");
+                input.className = "input";              
                 
                 input.addEventListener('keydown', function (e) {                    
-                        e.preventDefault();
-                        //whenEnterPressed();                    
+                        e.preventDefault();                                          
                 }, false);
 
                 let board = document.createElement("div");
@@ -1469,16 +1479,20 @@
 
             keyDown(e, buttons) {
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
-                buttons[id].onClickHandler()();                
-                document.getElementById(id).classList.add("press");
-                
+                buttons[id].onClickHandler()();
+                if (id !== "capsLock") {                    
+                    document.getElementById(id).classList.add("press");
+                } 
+
                 document.getElementById("input").blur();                                
             }
 
             keyUp(e, buttons) {
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
-                let sign = buttons[id].current;                
-                document.getElementById(id).classList.remove("press");
+                let sign = buttons[id].current;
+                if (id !== "capsLock") {
+                    document.getElementById(id).classList.remove("press");
+                } 
 
                 let input = document.getElementById("input");
                 let text = input.textContent;
@@ -1490,6 +1504,20 @@
                 for (let i = 0; i < idBtn.length; i++) {
                     document.getElementById(idBtn[i]).classList.remove("press");
                 }
+            }
+
+            changeSigns(idBtn, buttons, caps, shift, lang) {                
+                for (let key = 0; key < idBtn.length; key++) {
+                    if (!buttons[idBtn[key]].service) {
+                        if (!caps && lang == "en") {
+                            document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].en.signCaps;
+                            buttons[idBtn[key]].current = buttons[idBtn[key]].en.signCaps;
+                        } else {
+                            document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].en.signDef;
+                            buttons[idBtn[key]].current = buttons[idBtn[key]].en.signDef;
+                        }
+                    }
+                }                
             }
         }
 
