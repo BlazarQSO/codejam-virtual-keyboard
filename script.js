@@ -720,9 +720,9 @@
                                 } else {                               
                                     document.getElementById(self.title).classList.add("press");                                    
                                 }
-                                
-                                self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
-                                self.obj.caps = (self.obj.caps) ? false : true;                              
+
+                                self.obj.caps = (self.obj.caps) ? false : true;
+                                self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);                                                         
                             };
                         }
                     },
@@ -1025,11 +1025,16 @@
                         service: true,
                         current: "Shift",
 
+                        func: this.changeSigns,
+                        obj: this,
+
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                            let self = this;
+                            return function () {
+                                self.obj.shift = (self.obj.shift) ? false : true;
+                                self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
                             };
-                        }
+                        },
                     },
                     "keyZ": {
                         title: "KeyZ",
@@ -1299,11 +1304,16 @@
                         service: true,
                         current: "Shift",
 
+                        func: this.changeSigns,
+                        obj: this,
+
                         onClickHandler: function (e) {
-                            return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                            let self = this;
+                            return function () {
+                                self.obj.shift = (self.obj.shift) ? false : true;
+                                self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
                             };
-                        }
+                        },
                     },
 
                     //#endregion
@@ -1433,8 +1443,8 @@
                 
             }
 
-            Create() {
 
+            Create() {
                 let wrapper = document.createElement("div");
                 wrapper.className = "wrapper";
 
@@ -1467,7 +1477,15 @@
                 document.body.appendChild(wrapper);
 
                 for (var key in this.buttons) {
-                    document.querySelector("#" + key).addEventListener("click", this.buttons[key].onClickHandler(), false);
+                    if (key !== "shiftLeft" && key !== "shiftRight" && key !== "capsLock") {
+                        document.querySelector("#" + key).addEventListener("click", this.buttons[key].onClickHandler(), false);
+                    } else {
+                        document.querySelector("#" + key).addEventListener("mousedown", this.buttons[key].onClickHandler(), false);
+                        if (key !== "capsLock") {
+                            document.querySelector("#" + key).addEventListener("mouseup", this.buttons[key].onClickHandler(), false);
+                        }
+                    }
+
                     document.querySelector("#" + key).addEventListener("click", function () {                                          
                         let input = document.getElementById("input");
                         let text = input.textContent;
@@ -1477,15 +1495,19 @@
                 }
             }
 
+
             keyDown(e, buttons) {
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
-                buttons[id].onClickHandler()();
-                if (id !== "capsLock") {                    
-                    document.getElementById(id).classList.add("press");
-                } 
+                if (!(id === "shiftLeft" && this.shift || id === "shiftRight" && this.shift)) {
 
+                    buttons[id].onClickHandler()();
+                    if (id !== "capsLock") {
+                        document.getElementById(id).classList.add("press");
+                    }
+                }
                 document.getElementById("input").blur();                                
             }
+
 
             keyUp(e, buttons) {
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
@@ -1493,6 +1515,9 @@
                 if (id !== "capsLock") {
                     document.getElementById(id).classList.remove("press");
                 } 
+                if (id === "shiftLeft" || id === "shiftRight") {
+                    buttons[id].onClickHandler()();
+                }
 
                 let input = document.getElementById("input");
                 let text = input.textContent;
@@ -1500,32 +1525,55 @@
                 input.focus();
             }
 
+
             keyDefault(e, idBtn) {
                 for (let i = 0; i < idBtn.length; i++) {
                     document.getElementById(idBtn[i]).classList.remove("press");
                 }
             }
 
+
             changeSigns(idBtn, buttons, caps, shift, lang) {                
                 for (let key = 0; key < idBtn.length; key++) {
                     if (!buttons[idBtn[key]].service) {
-                        if (!caps && lang == "en") {
-                            document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].en.signCaps;
-                            buttons[idBtn[key]].current = buttons[idBtn[key]].en.signCaps;
+
+                        if (lang === "en") {
+                            if (shift && caps) {
+                                document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].en.signShiftCaps;
+                                buttons[idBtn[key]].current = buttons[idBtn[key]].en.signShiftCaps;
+                            } else if (caps) {
+                                document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].en.signCaps;
+                                buttons[idBtn[key]].current = buttons[idBtn[key]].en.signCaps;
+                            } else if (shift) {
+                                document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].en.signShift;
+                                buttons[idBtn[key]].current = buttons[idBtn[key]].en.signShift;
+                            } else {
+                                document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].en.signDef;
+                                buttons[idBtn[key]].current = buttons[idBtn[key]].en.signDef;
+                            }
                         } else {
-                            document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].en.signDef;
-                            buttons[idBtn[key]].current = buttons[idBtn[key]].en.signDef;
+                            if (shift && caps) {
+                                document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].ru.signShiftCaps;
+                                buttons[idBtn[key]].current = buttons[idBtn[key]].ru.signShiftCaps;
+                            } else if (caps) {
+                                document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].ru.signCaps;
+                                buttons[idBtn[key]].current = buttons[idBtn[key]].ru.signCaps;
+                            } else if (shift) {
+                                document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].ru.signShift;
+                                buttons[idBtn[key]].current = buttons[idBtn[key]].ru.signShift;
+                            } else {
+                                document.getElementById(idBtn[key]).innerHTML = buttons[idBtn[key]].ru.signDef;
+                                buttons[idBtn[key]].current = buttons[idBtn[key]].ru.signDef;
+                            }
                         }
                     }
                 }                
             }
         }
-
-
+        
 
         let instance = new Keyboard();
         instance.Create();
-
 
     }
 })();
