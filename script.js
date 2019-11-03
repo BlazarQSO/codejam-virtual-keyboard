@@ -7,6 +7,7 @@
             constructor() {
                 this.caps = false;
                 this.shift = false;               
+                this.input = document.getElementById("input");
 
                 this.buttons = {
 
@@ -35,7 +36,7 @@
                             return () => {
                                 document.getElementById("input").innerHTML += this.current;
                             };
-                        }
+                        },
                     },
                     "digit1": {
                         title: "Digit1",
@@ -58,7 +59,7 @@
 
                         onClickHandler: function (e) {
                             return () => {                                
-                                document.getElementById("input").innerHTML += this.current;
+                                document.getElementById("input").innerHTML += this.current;                              
                             };
                         },
                     },
@@ -340,14 +341,16 @@
                     "backspace": {
                         title: "Backspace",
                         value: 8,
-                        service: true,
+                        service: true,                        
                         current: "BackSpace",
 
                         onClickHandler: function (e) {
                             return () => {
-                                document.getElementById("input").innerHTML += this.current;
+                                let text = document.getElementById("input").textContent;
+                                text = text.substring(0, text.length - 1);
+                                document.getElementById("input").innerHTML = text;
                             };
-                        }
+                        },                       
                     },
 
                     //#endregion
@@ -363,9 +366,9 @@
 
                         onClickHandler: function (e) {                            
                             return () => {
-                                document.getElementById("input").innerHTML += this.current;                                
+                                document.getElementById("input").innerHTML += "\t";                                
                             };
-                        }
+                        },           
                     },
                     "keyQ": {
                         title: "KeyQ",
@@ -692,6 +695,7 @@
                             };
                         }
                     },
+
                     //#endregion
 
 
@@ -1412,7 +1416,7 @@
                 }
                                 
                 document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => this.keyDown(e, this.buttons), false);
-                document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => this.keyAp(e, this.buttons), false);
+                document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => this.keyUp(e, this.buttons), false);
                 window.addEventListener("blur", (e) => this.keyDefault(e, this.idBtn), false);
                 
             }
@@ -1426,8 +1430,13 @@
                 
                 input.setAttribute("id", "input");                
                 input.className = "input";
-                input.setAttribute("readonly", "");
+                //input.setAttribute("readonly", "");
                 
+                input.addEventListener('keydown', function (e) {                    
+                        e.preventDefault();
+                        //whenEnterPressed();                    
+                }, false);
+
                 let board = document.createElement("div");
                 board.className = "keyboard";
                
@@ -1448,21 +1457,33 @@
                 document.body.appendChild(wrapper);
 
                 for (var key in this.buttons) {
-                    document.querySelector("#" + key).onclick = this.buttons[key].onClickHandler();                  
+                    document.querySelector("#" + key).addEventListener("click", this.buttons[key].onClickHandler(), false);
+                    document.querySelector("#" + key).addEventListener("click", function () {                                          
+                        let input = document.getElementById("input");
+                        let text = input.textContent;
+                        input.selectionStart = text.length;
+                        input.focus();
+                    }, false);
                 }
             }
 
             keyDown(e, buttons) {
-                let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);                
-                let sign = buttons[id].current;
-                document.getElementById("input").innerHTML += sign;
+                let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
+                buttons[id].onClickHandler()();                
                 document.getElementById(id).classList.add("press");
+                
+                document.getElementById("input").blur();                                
             }
 
-            keyAp(e, buttons) {
+            keyUp(e, buttons) {
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
                 let sign = buttons[id].current;                
                 document.getElementById(id).classList.remove("press");
+
+                let input = document.getElementById("input");
+                let text = input.textContent;
+                input.selectionStart = text.length;
+                input.focus();
             }
 
             keyDefault(e, idBtn) {
