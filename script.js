@@ -18,8 +18,6 @@
                     //#region Row №1.
 
                     "backquote": {
-                        title: "Backquote",
-                        value: 192,
                         service: false,
 
                         en: {
@@ -41,8 +39,6 @@
                         },
                     },
                     "digit1": {
-                        title: "Digit1",
-                        value: 49,
                         service: false,
 
                         en: {
@@ -64,8 +60,6 @@
                         },
                     },
                     "digit2": {
-                        title: "Digit2",
-                        value: 50,
                         service: false,
 
                         en: {
@@ -87,8 +81,6 @@
                         }
                     },
                     "digit3": {
-                        title: "Digit3",
-                        value: 51,
                         service: false,
 
                         en: {
@@ -110,8 +102,6 @@
                         }
                     },
                     "digit4": {
-                        title: "Digit4",
-                        value: 52,
                         service: false,
 
                         en: {
@@ -133,8 +123,6 @@
                         }
                     },
                     "digit5": {
-                        title: "Digit5",
-                        value: 53,
                         service: false,
 
                         en: {
@@ -156,8 +144,6 @@
                         }
                     },
                     "digit6": {
-                        title: "Digit6",
-                        value: 54,
                         service: false,
 
                         en: {
@@ -179,8 +165,6 @@
                         }
                     },
                     "digit7": {
-                        title: "Digit7",
-                        value: 55,
                         service: false,
 
                         en: {
@@ -202,8 +186,6 @@
                         }
                     },
                     "digit8": {
-                        title: "Digit8",
-                        value: 56,
                         service: false,
 
                         en: {
@@ -225,8 +207,6 @@
                         }
                     },
                     "digit9": {
-                        title: "Digit9",
-                        value: 57,
                         service: false,
 
                         en: {
@@ -248,8 +228,6 @@
                         }
                     },
                     "digit0": {
-                        title: "Digit0",
-                        value: 48,
                         service: false,
 
                         en: {
@@ -271,8 +249,6 @@
                         }
                     },
                     "minus": {
-                        title: "Minus",
-                        value: 189,
                         service: false,
 
                         en: {
@@ -294,8 +270,6 @@
                         }
                     },
                     "equal": {
-                        title: "Equal",
-                        value: 187,
                         service: false,
 
                         en: {
@@ -317,8 +291,6 @@
                         }
                     },
                     "backspace": {
-                        title: "Backspace",
-                        value: 8,
                         service: true,
                         current: "BackSpace",
 
@@ -343,8 +315,6 @@
                     //#region Row №2.
 
                     "tab": {
-                        title: "Tab",
-                        value: 9,
                         service: true,
                         current: "Tab",
 
@@ -376,8 +346,6 @@
                         }
                     },
                     "keyW": {
-                        title: "KeyW",
-                        value: 87,
                         service: false,
 
                         en: {
@@ -399,8 +367,6 @@
                         }
                     },
                     "keyE": {
-                        title: "KeyE",
-                        value: 69,
                         service: false,
 
                         en: {
@@ -422,8 +388,6 @@
                         }
                     },
                     "keyR": {
-                        title: "KeyR",
-                        value: 82,
                         service: false,
 
                         en: {
@@ -445,8 +409,6 @@
                         }
                     },
                     "keyT": {
-                        title: "KeyT",
-                        value: 84,
                         service: false,
 
                         en: {
@@ -468,8 +430,6 @@
                         }
                     },
                     "keyY": {
-                        title: "KeyY",
-                        value: 89,
                         service: false,
 
                         en: {
@@ -491,8 +451,6 @@
                         }
                     },
                     "keyU": {
-                        title: "KeyU",
-                        value: 85,
                         service: false,
 
                         en: {
@@ -514,8 +472,6 @@
                         }
                     },
                     "keyI": {
-                        title: "KeyI",
-                        value: 73,
                         service: false,
 
                         en: {
@@ -537,8 +493,6 @@
                         }
                     },
                     "keyO": {
-                        title: "KeyO",
-                        value: 79,
                         service: false,
 
                         en: {
@@ -560,8 +514,6 @@
                         }
                     },
                     "keyP": {
-                        title: "KeyP",
-                        value: 80,
                         service: false,
 
                         en: {
@@ -583,8 +535,6 @@
                         }
                     },
                     "bracketLeft": {
-                        title: "BracketLeft",
-                        value: 219,
                         service: false,
 
                         en: {
@@ -606,8 +556,6 @@
                         }
                     },
                     "bracketRight": {
-                        title: "BracketRight",
-                        value: 221,
                         service: false,
 
                         en: {
@@ -629,8 +577,6 @@
                         }
                     },
                     "backSlash": {
-                        title: "BackSlash",
-                        value: 220,
                         service: false,
 
                         en: {
@@ -659,7 +605,6 @@
 
                     "capsLock": {
                         title: "capsLock",
-                        value: 20,
                         service: true,
                         current: "CapsLock",
                         func: this.changeSigns,
@@ -680,8 +625,6 @@
                         }
                     },
                     "keyA": {
-                        title: "KeyA",
-                        value: 65,
                         service: false,
 
                         en: {
@@ -703,8 +646,6 @@
                         }
                     },
                     "keyS": {
-                        title: "KeyS",
-                        value: 83,
                         service: false,
 
                         en: {
@@ -726,8 +667,6 @@
                         }
                     },
                     "keyD": {
-                        title: "KeyD",
-                        value: 68,
                         service: false,
 
                         en: {
@@ -749,8 +688,6 @@
                         }
                     },
                     "keyF": {
-                        title: "KeyF",
-                        value: 70,
                         service: false,
 
                         en: {
@@ -772,8 +709,6 @@
                         }
                     },
                     "keyG": {
-                        title: "KeyG",
-                        value: 71,
                         service: false,
 
                         en: {
@@ -795,8 +730,6 @@
                         }
                     },
                     "keyH": {
-                        title: "KeyH",
-                        value: 72,
                         service: false,
 
                         en: {
@@ -817,9 +750,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "keyJ": {
-                        title: "KeyJ",
-                        value: 74,
+                    "keyJ": { 
                         service: false,
 
                         en: {
@@ -840,9 +771,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "keyK": {
-                        title: "KeyK",
-                        value: 75,
+                    "keyK": {           
                         service: false,
 
                         en: {
@@ -863,9 +792,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "keyL": {
-                        title: "KeyL",
-                        value: 76,
+                    "keyL": {                
                         service: false,
 
                         en: {
@@ -886,9 +813,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "semicolon": {
-                        title: "Semicolon",
-                        value: 186,
+                    "semicolon": {            
                         service: false,
 
                         en: {
@@ -909,9 +834,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "quote": {
-                        title: "Quote",
-                        value: 222,
+                    "quote": {                
                         service: false,
 
                         en: {
@@ -932,9 +855,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "enter": {
-                        title: "Enter",
-                        value: 13,
+                    "enter": {                   
                         service: true,
                         current: "Enter",
 
@@ -948,9 +869,7 @@
 
                     //#region Row №4.
 
-                    "shiftLeft": {
-                        title: "ShiftLeft",
-                        value: 16,
+                    "shiftLeft": {                 
                         service: true,
                         current: "Shift",
 
@@ -965,9 +884,7 @@
                             };
                         },
                     },
-                    "keyZ": {
-                        title: "KeyZ",
-                        value: 90,
+                    "keyZ": {                   
                         service: false,
 
                         en: {
@@ -988,9 +905,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "keyX": {
-                        title: "KeyX",
-                        value: 88,
+                    "keyX": {                  
                         service: false,
 
                         en: {
@@ -1011,9 +926,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "keyC": {
-                        title: "KeyC",
-                        value: 67,
+                    "keyC": {                 
                         service: false,
 
                         en: {
@@ -1034,9 +947,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "keyV": {
-                        title: "KeyV",
-                        value: 86,
+                    "keyV": {                   
                         service: false,
 
                         en: {
@@ -1057,9 +968,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "keyB": {
-                        title: "KeyB",
-                        value: 66,
+                    "keyB": {                 
                         service: false,
 
                         en: {
@@ -1080,9 +989,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "keyN": {
-                        title: "KeyN",
-                        value: 78,
+                    "keyN": {                   
                         service: false,
 
                         en: {
@@ -1103,9 +1010,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "keyM": {
-                        title: "KeyM",
-                        value: 77,
+                    "keyM": {                   
                         service: false,
 
                         en: {
@@ -1126,9 +1031,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "comma": {
-                        title: "Comma",
-                        value: 188,
+                    "comma": {                      
                         service: false,
 
                         en: {
@@ -1149,9 +1052,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "period": {
-                        title: "Period",
-                        value: 190,
+                    "period": {                    
                         service: false,
 
                         en: {
@@ -1172,9 +1073,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "slash": {
-                        title: "Slash",
-                        value: 191,
+                    "slash": {                     
                         service: false,                        
 
                         en: {
@@ -1195,9 +1094,7 @@
                             return () => focusSelect(this.current);
                         }
                     },
-                    "arrowUp": {
-                        title: "ArrowUp",
-                        value: 38,
+                    "arrowUp": {                   
                         service: true,
                         obj: this,
                         current: "&uarr;",
@@ -1222,9 +1119,7 @@
                             };
                         }
                     },
-                    "shiftRight": {
-                        title: "ShiftRight",
-                        value: 16,
+                    "shiftRight": {                
                         service: true,
                         current: "Shift",
 
@@ -1245,9 +1140,7 @@
 
                     //#region Row №5.
 
-                    "controlLeft": {
-                        title: "ControlLeft",
-                        value: 17,
+                    "controlLeft": {               
                         service: true,
                         func: this.changeSigns,
                         obj: this,
@@ -1271,9 +1164,7 @@
                             };
                         },
                     },
-                    "altLeft": {
-                        title: "AltLeft",
-                        value: 18,
+                    "altLeft": {                 
                         service: true,
                         current: "Alt",
                         func: this.changeSigns,
@@ -1297,9 +1188,7 @@
                             };
                         },
                     },
-                    "space": {
-                        title: "Space",
-                        value: 32,
+                    "space": {               
                         service: true,
                         current: "Space",
 
@@ -1307,9 +1196,7 @@
                             return () => focusSelect(" ");                            
                         },
                     },
-                    "altRight": {
-                        title: "AltRight",
-                        value: 18,
+                    "altRight": {             
                         service: true,
                         func: this.changeSigns,
                         obj: this,
@@ -1333,9 +1220,7 @@
                             };
                         },
                     },
-                    "controlRight": {
-                        title: "ControlRight",
-                        value: 17,
+                    "controlRight": {                  
                         service: true,
                         func: this.changeSigns,
                         obj: this,
@@ -1359,9 +1244,7 @@
                             };
                         },
                     },
-                    "arrowLeft": {
-                        title: "ArrowLeft",
-                        value: 37,
+                    "arrowLeft": {                 
                         service: true,
                         obj: this,
                         current: "&larr;",
@@ -1384,9 +1267,7 @@
                             };
                         },
                     },
-                    "arrowDown": {
-                        title: "ArrowDown",
-                        value: 40,
+                    "arrowDown": {                    
                         service: true,
                         obj: this,
                         current: "&darr;",
@@ -1410,9 +1291,7 @@
                             };
                         },
                     },
-                    "arrowRight": {
-                        title: "ArrowRight",
-                        value: 39,
+                    "arrowRight": {                      
                         service: true,
                         obj: this,
                         current: "&rarr;",
@@ -1434,9 +1313,7 @@
                             };
                         },
                     },
-                    "delete": {
-                        title: "Delete",
-                        value: 9,
+                    "delete": {                 
                         service: true,
                         current: "Del",
 
@@ -1529,8 +1406,8 @@
                     }
                 }
 
-                document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => { document.getElementById("input").focus(); this.keyDown(e, this.buttons) }, false);
-                document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => { document.getElementById("input").focus(); this.keyUp(e, this.buttons) }, false);
+                document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => this.keyDown(e, this.buttons), false);
+                document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => this.keyUp(e, this.buttons), false);
                 window.addEventListener("blur", (e) => this.keyDefault(e, this.idBtn), false);
 
                 input.focus();
@@ -1539,16 +1416,17 @@
 
             keyDown(e, buttons) {
 
-                setTimeout(function () {
-                    document.getElementById("input").focus();
-                }, 0);
-
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
 
                 if (!(id === "controlLeft" && this.ctrl || id === "controlRight" && this.ctrl
                     || id === "altLeft" && this.alt || id === "altRight" && this.alt)) {
-                    
+
                     if (!(id === "shiftLeft" && this.shift || id === "shiftRight" && this.shift)) {
+
+                        setTimeout(function () {
+                            document.getElementById("input").focus();
+                        }, 0);
+
                         buttons[id].onClickHandler()();
                         if (id !== "capsLock") {
                             document.getElementById(id).classList.add("press");
