@@ -9,7 +9,7 @@
                 this.caps = false;
                 this.alt = false;
                 this.ctrl = false;
-                this.lang = localStorage.getItem("lang") || "en";
+                this.lang = sessionStorage.getItem("lang") || "en";
                 this.idBtn = [];
                 this.buttons;              
                 
@@ -1251,7 +1251,7 @@
                                 self.obj.ctrl = true;
                                 if (self.obj.alt) {
                                     self.obj.lang = (self.obj.lang === "en") ? "ru" : "en";
-                                    localStorage.setItem("lang", self.obj.lang);
+                                    sessionStorage.setItem("lang", self.obj.lang);
                                     self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
                                 }
                             };
@@ -1261,7 +1261,7 @@
                             return function () {
                                 self.obj.ctrl = false;
                             };
-                        }
+                        },
                     },
                     "altLeft": {
                         title: "AltLeft",
@@ -1277,7 +1277,7 @@
                                 self.obj.alt = true;
                                 if (self.obj.ctrl) {
                                     self.obj.lang = (self.obj.lang === "en") ? "ru" : "en";
-                                    localStorage.setItem("lang", self.obj.lang);
+                                    sessionStorage.setItem("lang", self.obj.lang);
                                     self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
                                 }
                             };
@@ -1287,7 +1287,7 @@
                             return function () {
                                 self.obj.alt = false;
                             };
-                        }
+                        },
                     },
                     "space": {
                         title: "Space",
@@ -1297,7 +1297,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(" ");                            
-                        }
+                        },
                     },
                     "altRight": {
                         title: "AltRight",
@@ -1313,7 +1313,7 @@
                                 self.obj.alt = true;
                                 if (self.obj.ctrl) {
                                     self.obj.lang = (self.obj.lang === "en") ? "ru" : "en";
-                                    localStorage.setItem("lang", self.obj.lang);
+                                    sessionStorage.setItem("lang", self.obj.lang);
                                     self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
                                 }
                             };
@@ -1323,7 +1323,7 @@
                             return function () {
                                 self.obj.alt = false;
                             };
-                        }
+                        },
                     },
                     "controlRight": {
                         title: "ControlRight",
@@ -1339,7 +1339,7 @@
                                 self.obj.ctrl = true;
                                 if (self.obj.alt) {
                                     self.obj.lang = (self.obj.lang === "en") ? "ru" : "en";
-                                    localStorage.setItem("lang", self.obj.lang);
+                                    sessionStorage.setItem("lang", self.obj.lang);
                                     self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
                                 }
                             };
@@ -1349,7 +1349,7 @@
                             return function () {
                                 self.obj.ctrl = false;
                             };
-                        }
+                        },
                     },
                     "arrowLeft": {
                         title: "ArrowLeft",
@@ -1361,12 +1361,14 @@
                             return () => {
                                 let input = document.getElementById("input");
                                 let select = input.selectionStart;
-                                select--;
+                                if (select > 0) {
+                                    select--;
+                                }
                                 input.selectionStart = select;
-                                input.selectionEnd = select;
+                                input.selectionEnd = select;                                
                                 input.focus();
                             };
-                        }
+                        },
                     },
                     "arrowDown": {
                         title: "ArrowDown",
@@ -1385,7 +1387,7 @@
                                 input.selectionEnd = select;
                                 input.focus();
                             };
-                        }
+                        },
                     },
                     "arrowRight": {
                         title: "ArrowRight",
@@ -1402,7 +1404,7 @@
                                 input.selectionEnd = select;
                                 input.focus();
                             };
-                        }
+                        },
                     },
                     "delete": {
                         title: "Delete",
@@ -1414,14 +1416,14 @@
                             return () => {
                                 let input = document.getElementById("input");
                                 let select = input.selectionStart;                                
-                                let text = document.getElementById("input").textContent;
+                                let text = input.textContent;
                                 text = text.substring(0, select) + text.substring(select + 1, text.length);                                
                                 input.innerHTML = text;
                                 input.selectionStart = select;
                                 input.selectionEnd = select;
                                 input.focus();
                             };
-                        }
+                        },
                     },
 
                     //#endregion
@@ -1429,26 +1431,22 @@
                 
                 function focusSelect(current) {
                     let input = document.getElementById("input");
-                    input.innerHTML += current;
+                    let select = input.selectionStart;
                     let text = input.textContent;
-                    let select = text.length;
-                    input.selectionStart = select;
-                    input.selectionEnd = select;
+                    text = text.substring(0, select) + current + text.substring(select, text.length);
+                    input.innerHTML = text;
+                    input.selectionStart = select + 1;
+                    input.selectionEnd = select + 1;
                     input.focus();
                 }
 
                 for (var key in this.buttons) {
                     this.idBtn.push(key);
                 }
-
-                document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => this.keyDown(e, this.buttons), false);
-                document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => this.keyUp(e, this.buttons), false);
-                window.addEventListener("blur", (e) => this.keyDefault(e, this.idBtn), false);
-
             }
 
 
-            Create() {
+            create() {
                 let wrapper = document.createElement("div");
                 wrapper.className = "wrapper";
 
@@ -1464,17 +1462,16 @@
                 let board = document.createElement("div");
                 board.className = "keyboard";
 
-                for (let i = 0; i < 63; i++) {
+                for (let i = 0; i < this.idBtn.length; i++) {
                     let btn = document.createElement("button");
                     btn.setAttribute("type", "button");
                     btn.className = "button";
-                    if (i < this.idBtn.length) {
-                        btn.id = this.idBtn[i];
-                        if (this.lang === "ru" && !this.buttons[this.idBtn[i]].service) {
-                            this.buttons[this.idBtn[i]].current = this.buttons[this.idBtn[i]].ru.signDef;
-                        }
-                        btn.innerHTML = this.buttons[this.idBtn[i]].current;
+                    btn.id = this.idBtn[i];
+
+                    if (this.lang === "ru" && !this.buttons[this.idBtn[i]].service) {
+                        this.buttons[this.idBtn[i]].current = this.buttons[this.idBtn[i]].ru.signDef;
                     }
+                    btn.innerHTML = this.buttons[this.idBtn[i]].current;
                     board.appendChild(btn);
                 }
 
@@ -1486,9 +1483,11 @@
                 for (var key in this.buttons) {
                     if (key !== "shiftLeft" && key !== "shiftRight" && key !== "capsLock" &&
                         key !== "controlLeft" && key !== "controlRight" && key !== "altLeft" && key !== "altRight") {
+
                         document.querySelector("#" + key).addEventListener("click", this.buttons[key].onClickHandler(), false);
                     } else {
                         document.querySelector("#" + key).addEventListener("mousedown", this.buttons[key].onClickHandler(), false);
+
                         if (key === "controlLeft" || key === "controlRight" || key === "altLeft" || key === "altRight") {
                             document.querySelector("#" + key).addEventListener("mouseup", this.buttons[key].onMouseUp(), false);
                         } else if (key !== "capsLock") {
@@ -1496,6 +1495,10 @@
                         }
                     }
                 }
+
+                document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => this.keyDown(e, this.buttons), false);
+                document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => this.keyUp(e, this.buttons), false);
+                window.addEventListener("blur", (e) => this.keyDefault(e, this.idBtn), false);
             }
 
 
@@ -1504,8 +1507,7 @@
 
                 if (!(id === "controlLeft" && this.ctrl || id === "controlRight" && this.ctrl
                     || id === "altLeft" && this.alt || id === "altRight" && this.alt)) {
-
-
+                    
                     if (!(id === "shiftLeft" && this.shift || id === "shiftRight" && this.shift)) {
                         buttons[id].onClickHandler()();
                         if (id !== "capsLock") {
@@ -1513,8 +1515,11 @@
                         }
                     }
                 }
-
-                document.getElementById("input").blur();
+                
+                let input = document.getElementById("input");                
+                if (input.textContent.length < 2) {                    
+                    input.blur();
+                }                
             }
 
 
@@ -1531,11 +1536,8 @@
                 if (id === "shiftLeft" || id === "shiftRight") {
                     buttons[id].onClickHandler()();
                 }
-
-                let input = document.getElementById("input");
-                let text = input.textContent;
-                input.selectionStart = text.length;
-                input.focus();
+                
+                document.getElementById("input").focus();
             }
 
 
@@ -1586,7 +1588,7 @@
 
 
         let instance = new Keyboard();
-        instance.Create();
+        instance.create();
 
     }
 })();
