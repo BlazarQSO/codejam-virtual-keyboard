@@ -1199,17 +1199,25 @@
                         title: "ArrowUp",
                         value: 38,
                         service: true,
+                        obj: this,
                         current: "&uarr;",
 
                         onClickHandler: function (e) {
                             return () => {
                                 let input = document.getElementById("input");
                                 let select = input.selectionStart;
+                                
                                 if (select >= 60) {
                                     select = select - 60;
                                 }
-                                input.selectionStart = select;
-                                input.selectionEnd = select;
+
+                                if (!this.obj.shift) {
+                                    input.selectionStart = select;
+                                    input.selectionEnd = select;
+                                } else {
+                                    input.selectionStart = select;
+                                }
+
                                 input.focus();
                             };
                         }
@@ -1355,6 +1363,7 @@
                         title: "ArrowLeft",
                         value: 37,
                         service: true,
+                        obj: this,
                         current: "&larr;",
 
                         onClickHandler: function (e) {
@@ -1364,8 +1373,13 @@
                                 if (select > 0) {
                                     select--;
                                 }
-                                input.selectionStart = select;
-                                input.selectionEnd = select;                                
+                                
+                                if (!this.obj.shift) {
+                                    input.selectionStart = select;
+                                    input.selectionEnd = select;
+                                } else {                                    
+                                    input.selectionStart = select;                                  
+                                }                                                            
                                 input.focus();
                             };
                         },
@@ -1374,17 +1388,24 @@
                         title: "ArrowDown",
                         value: 40,
                         service: true,
+                        obj: this,
                         current: "&darr;",
 
                         onClickHandler: function (e) {
                             return () => {
                                 let input = document.getElementById("input");
-                                let select = input.selectionStart;
-                                if (select + 60 < input.textContent.length) {
+                                let select = input.selectionEnd;
+                                if (select + 60 <= input.textContent.length) {
                                     select = select + 60;
                                 }
-                                input.selectionStart = select;
-                                input.selectionEnd = select;
+
+                                if (!this.obj.shift) {
+                                    input.selectionStart = select;
+                                    input.selectionEnd = select;
+                                } else {
+                                    input.selectionEnd = select;
+                                }
+
                                 input.focus();
                             };
                         },
@@ -1393,15 +1414,22 @@
                         title: "ArrowRight",
                         value: 39,
                         service: true,
+                        obj: this,
                         current: "&rarr;",
 
                         onClickHandler: function (e) {
                             return () => {                                
                                 let input = document.getElementById("input");
-                                let select = input.selectionStart;
+                                let select = input.selectionEnd;
                                 select++;
-                                input.selectionStart = select;
-                                input.selectionEnd = select;
+
+                                if (!this.obj.shift) {
+                                    input.selectionStart = select;
+                                    input.selectionEnd = select;
+                                } else {
+                                    input.selectionEnd = select;
+                                }
+
                                 input.focus();
                             };
                         },
@@ -1415,9 +1443,14 @@
                         onClickHandler: function (e) {
                             return () => {
                                 let input = document.getElementById("input");
-                                let select = input.selectionStart;                                
+                                let select = input.selectionStart;
+                                let selectEnd = input.selectionEnd;
                                 let text = input.textContent;
-                                text = text.substring(0, select) + text.substring(select + 1, text.length);                                
+                                if (select === selectEnd) {
+                                    text = text.substring(0, select) + text.substring(select + 1, text.length);
+                                } else {
+                                    text = text.substring(0, select) + text.substring(selectEnd, text.length);
+                                }
                                 input.innerHTML = text;
                                 input.selectionStart = select;
                                 input.selectionEnd = select;
@@ -1496,13 +1529,20 @@
                     }
                 }
 
-                document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => this.keyDown(e, this.buttons), false);
-                document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => this.keyUp(e, this.buttons), false);
+                document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => { document.getElementById("input").focus(); this.keyDown(e, this.buttons) }, false);
+                document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => { document.getElementById("input").focus(); this.keyUp(e, this.buttons) }, false);
                 window.addEventListener("blur", (e) => this.keyDefault(e, this.idBtn), false);
+
+                input.focus();
             }
 
 
             keyDown(e, buttons) {
+
+                setTimeout(function () {
+                    document.getElementById("input").focus();
+                }, 0);
+
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
 
                 if (!(id === "controlLeft" && this.ctrl || id === "controlRight" && this.ctrl
@@ -1515,15 +1555,12 @@
                         }
                     }
                 }
-                
-                let input = document.getElementById("input");                
-                if (input.textContent.length < 2) {                    
-                    input.blur();
-                }                
+
+                document.getElementById("input").blur();         
             }
 
 
-            keyUp(e, buttons) {
+            keyUp(e, buttons) { 
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
                 let sign = buttons[id].current;
 
@@ -1536,7 +1573,7 @@
                 if (id === "shiftLeft" || id === "shiftRight") {
                     buttons[id].onClickHandler()();
                 }
-                
+
                 document.getElementById("input").focus();
             }
 
