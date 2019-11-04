@@ -295,15 +295,25 @@
                         current: "BackSpace",
 
                         onClickHandler: function (e) {
-                            return () => {
+                            return () => { 
                                 let input = document.getElementById("input");
-                                let text = input.textContent;
-                                text = text.substring(0, text.length - 1);
-                                input.innerHTML = text;
+                                let select = input.selectionStart;                                
+                                let text = input.textContent;                                
+                                let selectEnd = input.selectionEnd;
+
+                                if (select === selectEnd) {
+                                    text = text.substring(0, select - 1) + text.substring(select, text.length);
+                                    input.innerHTML = text;
+                                    input.selectionStart = select - 1;
+                                    input.selectionEnd = select - 1;
+                                } else {
+                                    text = text.substring(0, select) + text.substring(selectEnd, text.length);
+                                    input.innerHTML = text;
+                                    input.selectionStart = select;
+                                    input.selectionEnd = select;
+                                }
+
                                 
-                                let select = text.length;
-                                input.selectionStart = select;
-                                input.selectionEnd = select;
                                 input.focus();
                             };
                         },
