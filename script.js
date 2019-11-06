@@ -78,7 +78,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "digit3": {
                         service: false,
@@ -99,7 +99,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "digit4": {
                         service: false,
@@ -120,7 +120,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "digit5": {
                         service: false,
@@ -141,7 +141,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "digit6": {
                         service: false,
@@ -162,7 +162,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "digit7": {
                         service: false,
@@ -183,7 +183,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "digit8": {
                         service: false,
@@ -204,7 +204,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "digit9": {
                         service: false,
@@ -225,7 +225,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "digit0": {
                         service: false,
@@ -246,7 +246,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "minus": {
                         service: false,
@@ -267,7 +267,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "equal": {
                         service: false,
@@ -288,7 +288,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "backspace": {
                         service: true,
@@ -312,8 +312,7 @@
                                     input.selectionStart = select;
                                     input.selectionEnd = select;
                                 }
-
-                                
+                                                                
                                 input.focus();
                             };
                         },
@@ -353,7 +352,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyW": {
                         service: false,
@@ -374,7 +373,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyE": {
                         service: false,
@@ -395,7 +394,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyR": {
                         service: false,
@@ -416,7 +415,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyT": {
                         service: false,
@@ -437,7 +436,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyY": {
                         service: false,
@@ -458,7 +457,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyU": {
                         service: false,
@@ -479,7 +478,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyI": {
                         service: false,
@@ -500,7 +499,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyO": {
                         service: false,
@@ -521,7 +520,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyP": {
                         service: false,
@@ -542,7 +541,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "bracketLeft": {
                         service: false,
@@ -563,7 +562,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "bracketRight": {
                         service: false,
@@ -584,7 +583,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "backSlash": {
                         service: false,
@@ -605,7 +604,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
 
                     //#endregion
@@ -617,22 +616,31 @@
                         title: "capsLock",
                         service: true,
                         current: "CapsLock",
+                        down: false,
                         func: this.changeSigns,
                         obj: this,
 
-                        onClickHandler: function (e) {
-                            let self = this;
-                            return function () {
-                                if (self.obj.caps) {
-                                    document.getElementById(self.title).classList.remove("press");
+                        onClickHandler: function (e) {                            
+                            return () => {
+                                if (this.obj.caps) {
+                                    document.getElementById(this.title).classList.remove("press");
                                 } else {
-                                    document.getElementById(self.title).classList.add("press");
-                                }
+                                    document.getElementById(this.title).classList.add("press");
+                                }                                
 
-                                self.obj.caps = (self.obj.caps) ? false : true;
-                                self.func(self.obj.idBtn, self.obj.buttons, self.obj.caps, self.obj.shift, self.obj.lang);
+                                this.obj.caps = (this.obj.caps) ? false : true;
+                                this.func(this.obj.idBtn, this.obj.buttons, this.obj.caps, this.obj.shift, this.obj.lang);
                             };
-                        }
+                        },
+                        onKeyDown: function () {
+                            return () => {
+                                if (!this.down) {
+                                    this.down = true;
+                                    this.obj.caps = (this.obj.caps) ? false : true;
+                                    this.func(this.obj.idBtn, this.obj.buttons, this.obj.caps, this.obj.shift, this.obj.lang);
+                                }
+                            };
+                        },
                     },
                     "keyA": {
                         service: false,
@@ -653,7 +661,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyS": {
                         service: false,
@@ -674,7 +682,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyD": {
                         service: false,
@@ -695,7 +703,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyF": {
                         service: false,
@@ -716,7 +724,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyG": {
                         service: false,
@@ -737,7 +745,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyH": {
                         service: false,
@@ -758,7 +766,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyJ": { 
                         service: false,
@@ -779,7 +787,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyK": {           
                         service: false,
@@ -800,7 +808,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyL": {                
                         service: false,
@@ -821,7 +829,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "semicolon": {            
                         service: false,
@@ -842,7 +850,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "quote": {                
                         service: false,
@@ -863,7 +871,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "enter": {                   
                         service: true,
@@ -871,7 +879,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect("\n");                            
-                        }
+                        },
                     },
 
                     //#endregion
@@ -913,7 +921,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyX": {                  
                         service: false,
@@ -934,7 +942,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyC": {                 
                         service: false,
@@ -955,7 +963,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyV": {                   
                         service: false,
@@ -976,7 +984,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyB": {                 
                         service: false,
@@ -997,7 +1005,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyN": {                   
                         service: false,
@@ -1018,7 +1026,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "keyM": {                   
                         service: false,
@@ -1039,7 +1047,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "comma": {                      
                         service: false,
@@ -1060,7 +1068,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "period": {                    
                         service: false,
@@ -1081,7 +1089,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "slash": {                     
                         service: false,                        
@@ -1102,7 +1110,7 @@
 
                         onClickHandler: function (e) {
                             return () => focusSelect(this.current);
-                        }
+                        },
                     },
                     "arrowUp": {                   
                         service: true,
@@ -1127,7 +1135,7 @@
 
                                 input.focus();
                             };
-                        }
+                        },
                     },
                     "shiftRight": {                
                         service: true,
@@ -1381,7 +1389,7 @@
 
                 let board = document.createElement("div");
                 board.className = "keyboard";
-
+                
                 for (let i = 0; i < this.idBtn.length; i++) {
                     let btn = document.createElement("button");
                     btn.setAttribute("type", "button");
@@ -1428,6 +1436,10 @@
 
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
 
+                if (id === "capsLock" && buttons[id].down) {                    
+                    return;
+                }
+
                 if (!(id === "controlLeft" && this.ctrl || id === "controlRight" && this.ctrl
                     || id === "altLeft" && this.alt || id === "altRight" && this.alt)) {
 
@@ -1436,10 +1448,12 @@
                         setTimeout(function () {
                             document.getElementById("input").focus();
                         }, 0);
-
-                        buttons[id].onClickHandler()();
+                                                
+                        document.getElementById(id).classList.add("press");
                         if (id !== "capsLock") {
-                            document.getElementById(id).classList.add("press");
+                            buttons[id].onClickHandler()();                            
+                        } else {
+                            buttons[id].onKeyDown()();
                         }
                     }
                 }
@@ -1448,16 +1462,25 @@
             }
 
 
-            keyUp(e, buttons) { 
+            keyUp(e, buttons) {
                 let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
                 let sign = buttons[id].current;
 
                 if (id === "controlLeft" || id === "controlRight" || id === "altLeft" || id === "altRight") {
                     buttons[id].onMouseUp()();
                 }
+                                
                 if (id !== "capsLock") {
                     document.getElementById(id).classList.remove("press");
+                } 
+
+                if (id === "capsLock" && buttons[id].down) {
+                    buttons[id].down = false;
+                    if (!buttons[id].obj.caps) {
+                        document.getElementById(id).classList.remove("press");
+                    }
                 }
+
                 if (id === "shiftLeft" || id === "shiftRight") {
                     buttons[id].onClickHandler()();
                 }
