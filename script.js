@@ -585,7 +585,7 @@
                             return () => focusSelect(this.current);
                         },
                     },
-                    "backSlash": {
+                    "backslash": {
                         service: false,
 
                         en: {
@@ -1434,8 +1434,7 @@
 
             keyDown(e, buttons) {
 
-                let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);
-
+                let id = e.code.substring(0, 1).toLowerCase() + e.code.substring(1, e.code.length);                
                 if (id === "capsLock" && buttons[id].down) {                    
                     return;
                 }
